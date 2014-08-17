@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     # TODO: set cron based on settings
     with open("rapi_crontab", 'w') as fh:
-        fh.write("*/10 * * * * python3 ~/scripts/load_settings.py\n")
-        fh.write("*/30 * * * * python3 ~/scripts/take_picture.py\n")
+        fh.write("* */6 * * * cd /home/pi/scripts && python3 ~/scripts/load_settings.py\n")
+        fh.write("*/30 * * * * cd /home/pi/scripts && python3 ~/scripts/take_picture.py\n")
 
     subprocess.call(["crontab", "rapi_crontab"])
